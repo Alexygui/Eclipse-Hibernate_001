@@ -10,8 +10,13 @@
     <property name="connection.url">jdbc:mysql:///hibernate?useUnicode=true</property>
     <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
     
+    <!-- 是否把Hibernate运行时的sql语句输出到控制台，编码阶段便于测试 --> 
     <property name="show_sql">true</property>
+    
+    <!-- 输出到控制台的SQL语句是否进行排版，便于阅读。 -->
     <property name="format_sql">true</property>
+    
+    <!-- 可以帮助有Java代码生成数据库脚本，进而生成具体的表结构。create | update | create-drop | validate -->
     <property name="hbm2ddl.auto">create</property>
     <mapping resource="Students.hbm.xml"/>
     </session-factory>

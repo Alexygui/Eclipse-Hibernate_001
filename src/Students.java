@@ -3,17 +3,17 @@ import java.util.Date;
 //学生类
 public class Students {
 	private int sid; //学号
-	private String naame;  //姓名
+	private String sname;  //姓名
 	private String gender;  //性别
 	private Date birthday; //出生日期
 	private String address;  //地址
 	
 	public Students() {}
 
-	public Students(int sid, String naame, String gender, Date birthday, String address) {
+	public Students(int sid, String sname, String gender, Date birthday, String address) {
 		//super();
 		this.sid = sid;
-		this.naame = naame;
+		this.sname = sname;
 		this.gender = gender;
 		this.birthday = birthday;
 		this.address = address;
@@ -27,12 +27,12 @@ public class Students {
 		this.sid = sid;
 	}
 
-	public String getNaame() {
-		return naame;
+	public String getSname() {
+		return sname;
 	}
 
 	public void setNaame(String naame) {
-		this.naame = naame;
+		this.sname = naame;
 	}
 
 	public String getGender() {
@@ -58,6 +58,11 @@ public class Students {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Students [sid=" + sid + ", sname=" + sname + ", gender=" + gender + ", birthday=" + birthday
+				+ ", address=" + address + "]";
+	}
 	
 }

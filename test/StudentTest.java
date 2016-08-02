@@ -5,9 +5,9 @@ import java.util.Date;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
+import org.hibernate.service.ServiceRegistryBuilder;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,7 +23,7 @@ public class StudentTest {
 		//创建配置对象
 		Configuration aConfiguration = new Configuration().configure();
 		//创建服务注册对象
-		ServiceRegistry aServiceRegistry = new StandardServiceRegistryBuilder().applySettings(aConfiguration.getProperties()).build();
+		ServiceRegistry aServiceRegistry = new ServiceRegistryBuilder().applySettings(aConfiguration.getProperties()).buildServiceRegistry();
 		//创建会话工厂对象
 		aSessionFactory = aConfiguration.buildSessionFactory(aServiceRegistry);
 		//会话对象
