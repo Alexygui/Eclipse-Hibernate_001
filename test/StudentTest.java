@@ -53,9 +53,9 @@ public class StudentTest {
 	@Test
 	public void testSaveStudents() {
 		// 生成学生对象
-		// Students aStudent = new Students(1, "张三丰", "男", new Date(), "武当山");
+		// Students aStudent = new Students(33, "张三丰", "男", new Date(), "武当山");
 		Students s = new Students();
-		// s.setSid(100);
+		s.setSid(55);
 		s.setSname("张三丰");
 		s.setGender("男");
 		s.setBirthday(new Date());
@@ -110,5 +110,30 @@ public class StudentTest {
 		output.write(buffer);
 		input.close();
 		output.close();
+	}
+	
+	@Test
+	public void testGetStudents() {
+		Students aStudent = (Students) aSession.get(Students.class, 0);
+		System.out.println(aStudent);
+	}
+	
+	@Test
+	public void testLoadStudents() {
+		Students aStudent = (Students) aSession.load(Students.class, 0);
+		System.out.println(aStudent);
+	}
+	
+	@Test
+	public void testUpdateStudents() {
+		Students aStudent = (Students) aSession.get(Students.class, 0);
+		aStudent.setGender("女");
+		aSession.update(aStudent);
+	}
+	
+	@Test
+	public void testDeleteStudents() {
+		Students aStudent = (Students) aSession.get(Students.class, 0);
+		aSession.delete(aStudent);
 	}
 }
