@@ -2,9 +2,12 @@
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.sql.Blob;
+import java.sql.SQLException;
 import java.util.Date;
 
 import org.hibernate.Hibernate;
@@ -85,5 +88,24 @@ public class StudentTest {
 		s.setPicture(image);
 		// 保存学生
 		aSession.save(s);
+	}
+	
+	@Test
+	public void testReadBlob() throws SQLException, IOException {
+		Students aStudent = (Students) aSession.get(Students.class, 66);
+		//获得Blob对象
+		Blob image = aStudent.getPicture();
+		//获得照片的输入流
+		InputStream input = image.getBinaryStream();
+		//创建输出流
+		File aFile = new File("/Users/wangguigen/Pictures/FN2V63AD2J.com.tencent.ScreenCapture2/aPhoto.png");
+		//获得输出流
+		OutputStream output = new FileOutputStream(aFile);
+		//创建缓冲区
+		byte[] buffer = new byte[input.available()];
+		input.read(buffer);
+		output.write(buffer);
+		input.close();
+		output.close();
 	}
 }
