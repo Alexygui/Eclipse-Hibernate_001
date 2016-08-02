@@ -59,14 +59,17 @@ public class StudentTest {
 		s.setSname("张三丰");
 		s.setGender("男");
 		s.setBirthday(new Date());
-		s.setAddress("武当山");
+		//s.setAddress("武当山");
+		Address address = new Address("710068","02988454126","西安市");
+		s.setAddress(address);
 		// 保存对象进入数据库
 		aSession.save(s);
 	}
 
 	@Test
 	public void testWriteBlob() {
-		Students s = new Students(66, "张六丰", "男", new Date(), "阿克苏");
+		Address address = new Address("710068","02988454126","西安市");
+		Students s = new Students(66, "张六丰", "男", new Date(), address);
 		// 获得照片文件
 		File aFile = new File("/Users/wangguigen/Pictures/FN2V63AD2J.com.tencent.ScreenCapture2/QQ20160731-0@2x.png");
 		System.out.println(aFile.getPath());
