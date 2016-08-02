@@ -1,4 +1,6 @@
+import java.sql.Blob;
 import java.util.Date;
+
 
 //学生类
 public class Students {
@@ -7,6 +9,7 @@ public class Students {
 	private String gender;  //性别
 	private Date birthday; //出生日期
 	private String address;  //地址
+	private Blob picture; //照片
 	
 	public Students() {}
 
@@ -26,13 +29,13 @@ public class Students {
 	public void setSid(int sid) {
 		this.sid = sid;
 	}
-
+	
 	public String getSname() {
 		return sname;
 	}
 
-	public void setNaame(String naame) {
-		this.sname = naame;
+	public void setSname(String sname) {
+		this.sname = sname;
 	}
 
 	public String getGender() {
@@ -57,6 +60,14 @@ public class Students {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	public Blob getPicture() {
+		return picture;
+	}
+
+	public void setPicture(Blob picture) {
+		this.picture = picture;
 	}
 
 	@Override

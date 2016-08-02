@@ -17,7 +17,9 @@
     <property name="format_sql">true</property>
     
     <!-- 可以帮助有Java代码生成数据库脚本，进而生成具体的表结构。create | update | create-drop | validate -->
-    <property name="hbm2ddl.auto">create</property>
+    <property name="hbm2ddl.auto">update</property>
+    <!-- 本地事务，jdbc事务 -->
+    <property name="hibernate.current_session_context_class">thread</property>
     <mapping resource="Students.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>
